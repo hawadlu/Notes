@@ -17,7 +17,7 @@ import Luke from "./src/components/Luke";
 
 function HomeScreen({navigation}) {
     return (
-        <View style={{flex: 1, alignItems: 'left', justifyContent: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <Text>Home Screen</Text>
             <Luke> </Luke>
             <Button
