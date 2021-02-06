@@ -12,7 +12,7 @@ import {Button, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-// import {NotesView} from 'src/components';
+import UselessTextInput from "./src/components/Text";
 
 function HomeScreen({navigation}) {
     return (
@@ -34,6 +34,7 @@ function DetailsScreen({navigation}) {
                 title="Go to Details... again"
                 onPress={() => navigation.navigate('Details')}
             />
+            <UselessTextInput> </UselessTextInput>
         </View>
     );
 }
