@@ -16,10 +16,11 @@ import NotesView from "./src/components/Notes";
 
 function HomeScreen({navigation}) {
     return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{flex: 1, alignItems: 'left', justifyContent: 'center'}}>
             <Text>Home Screen</Text>
+            <Luke> </Luke>
             <Button
-                title="Go to Details"
+                title="Add Note"
                 onPress={() => navigation.navigate('Details')}
             />
         </View>
