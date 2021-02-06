@@ -12,7 +12,7 @@ import {Button, View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import UselessTextInput from "./src/components/Text";
+import NotesView from "./src/components/Notes";
 
 function HomeScreen({navigation}) {
     return (
@@ -26,15 +26,14 @@ function HomeScreen({navigation}) {
     );
 }
 
-function DetailsScreen({navigation}) {
+function NotesScreen({navigation}) {
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Details Screen</Text>
-            <Button
-                title="Go to Details... again"
-                onPress={() => navigation.navigate('Details')}
-            />
-            <UselessTextInput> </UselessTextInput>
+            {/*<Button*/}
+            {/*    title="Go to Details... again"*/}
+            {/*    onPress={() => navigation.navigate('Details')}*/}
+            {/*/>*/}
+            <NotesView> </NotesView>
         </View>
     );
 }
@@ -52,7 +51,7 @@ const HomeStackScreen = ({navigation}) => (
 
 const DetailsStackScreen = ({navigation}) => (
     <DetailsStack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Details" component={DetailsScreen}/>
+        <Stack.Screen name="Details" component={NotesScreen}/>
     </DetailsStack.Navigator>
 );
 
