@@ -13,13 +13,15 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import UselessTextInput from "./src/components/Text";
+import Luke from "./src/components/Luke";
 
 function HomeScreen({navigation}) {
     return (
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={{flex: 1, alignItems: 'left', justifyContent: 'center'}}>
             <Text>Home Screen</Text>
+            <Luke> </Luke>
             <Button
-                title="Go to Details"
+                title="Add Note"
                 onPress={() => navigation.navigate('Details')}
             />
         </View>
