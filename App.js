@@ -13,6 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import NotesView from "./src/components/Notes";
+import Luke from "./src/components/Luke";
 
 function HomeScreen({navigation}) {
     return (
