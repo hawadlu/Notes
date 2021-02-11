@@ -33,7 +33,7 @@ const Search_bar = () => {
  */
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window').width;
-var tenth_height = height/10;
+var fifteenth_height = height/15;
 
 /**
  * Styles for the Search bar.
@@ -43,12 +43,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     button: {
-        height: tenth_height
+        height: fifteenth_height
     },
     text_input: {
-        height: tenth_height,
+        height: fifteenth_height,
+        width: height/4,
         borderColor: 'gray',
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#ffffff'
     }
 });
 
