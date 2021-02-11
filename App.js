@@ -8,12 +8,12 @@
 
 
 import * as React from 'react';
-import {Button, View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
+import {Button, View, Text, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import NotesView from "./src/components/Notes";
-import Luke from "./src/components/Luke";
+import Search_bar from "./src/components/Search_bar";
 
 /**
  * Home screen - Select a note to edit, open selected note.
@@ -26,21 +26,20 @@ function HomeScreen({navigation}) {
     return (
         <View style={homeStyles.container}>
             <View style={homeStyles.div_top}>
-                <Text>Home Screen</Text>
-                <Luke> </Luke>
-            </View>
-            <View style={homeStyles.div_middle}>
-            <Button
-                title="Add Note"
-                onPress={() => navigation.navigate('Details')}
-            />
+                <Search_bar> </Search_bar>
+                <TouchableOpacity onPress={() => navigation.navigate('Details')} >
+                    <Image
+                        source = {{ uri: 'https://raw.githubusercontent.com/hawadlu/Notes/main/images/add_button.png'}}
+                        style = {homeStyles.add_button}
+                    />
+                </TouchableOpacity>
             </View>
             <View style={homeStyles.div_bottom}>
                 <ScrollView>
                     <Text>Hello</Text>
                 </ScrollView>
             </View>
-            </View>
+        </View>
     );
 }
 
@@ -90,6 +89,7 @@ function App() {
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window').width;
 var eighth_height = height/8;
+var tenth_height = height/10;
 
 /**
  * Styles for the home screen.
@@ -105,19 +105,20 @@ const homeStyles = StyleSheet.create({
         height: eighth_height,
         width: width,
         alignSelf:'stretch',
-        backgroundColor: '#2196F3'
-    },
-    div_middle: {
-        height: eighth_height,
-        width: width,
-        alignSelf:'stretch',
-        backgroundColor: '#8BC34A'
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        backgroundColor: '#8527e3'
     },
     div_bottom: {
-        height: eighth_height*6,
+        height: eighth_height*7,
         width: width,
         alignSelf:'stretch',
-        backgroundColor: '#e3aa1a'
+        backgroundColor: '#e3e3e3'
+    },
+    add_button: {
+        height: tenth_height,
+        width: tenth_height,
     }
 });
 
