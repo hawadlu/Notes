@@ -88,6 +88,7 @@ function App() {
  * Height variable for screen.
  */
 var {height} = Dimensions.get('window');
+var {width} = Dimensions.get('window').width;
 var eighth_height = height/8;
 
 /**
@@ -102,14 +103,20 @@ const homeStyles = StyleSheet.create({
     },
     div_top: {
         height: eighth_height,
+        width: width,
+        alignSelf:'stretch',
         backgroundColor: '#2196F3'
     },
     div_middle: {
         height: eighth_height,
+        width: width,
+        alignSelf:'stretch',
         backgroundColor: '#8BC34A'
     },
     div_bottom: {
-        height: eighth_height*4,
+        height: eighth_height*6,
+        width: width,
+        alignSelf:'stretch',
         backgroundColor: '#e3aa1a'
     }
 });
