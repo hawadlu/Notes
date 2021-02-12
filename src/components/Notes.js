@@ -50,7 +50,12 @@ export default class NotesView extends Component {
 
                 {/*The controls for each note*/}
                 <View style={styles.nav}>
-                    <Text>This is where the buttons go</Text>
+                    <Button
+                        onPress={() => this.props.navigate('Home')}
+                        title="Home"
+                        color="#841584"
+                        accessibilityLabel="Learn more about this purple button"
+                    />
                 </View>
 
                 {/*The area where the note is typed*/}

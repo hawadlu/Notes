@@ -9,7 +9,7 @@
 
 import * as React from 'react';
 import {View, Text, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Alert} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NotesView from "./src/components/Notes";
 import Search_bar from "./src/components/Search_bar";
@@ -26,7 +26,7 @@ function HomeScreen({navigation}) {
         <View style={homeStyles.container}>
             <View style={homeStyles.div_top}>
                 <Search_bar> </Search_bar>
-                <TouchableOpacity onPress={() => navigation.navigate('Details')} >
+                <TouchableOpacity onPress={() => navigation.navigate('Notes')} >
                     <Image
                         source = {{ uri: 'https://raw.githubusercontent.com/hawadlu/Notes/main/images/add_button.png'}}
                         style = {homeStyles.add_button}
@@ -43,13 +43,10 @@ function HomeScreen({navigation}) {
 }
 
 function NotesScreen({navigation}) {
+    const {navigate} = useNavigation();
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            {/*<Button*/}
-            {/*    title="Go to Details... again"*/}
-            {/*    onPress={() => navigation.navigate('Details')}*/}
-            {/*/>*/}
-            <NotesView> </NotesView>
+            <NotesView navigate={navigate}> </NotesView>
         </View>
     );
 }
@@ -61,7 +58,7 @@ function App() {
         <NavigationContainer>
             <Stack.Navigator initialRoutename = "Home">
                 <Stack.Screen name="Home" component={HomeScreen}/>
-                <Stack.Screen name="Details" component={NotesScreen}/>
+                <Stack.Screen name="Notes" component={NotesScreen} options={{headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
