@@ -43,64 +43,71 @@ export default class NotesView extends Component {
     render() {
         return (
             <KeyboardAvoidingView
-                style={styles.container}
+                style={pageStyles.pageContainer}
                 behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
                 keyboardVerticalOffset={Platform.OS == 'ios' ? 0 : 20}
                 enabled={Platform.OS === 'ios' ? true : false}>
 
                 {/*The controls for each note*/}
-                <View style={styles.nav}>
-                    <Button
-                        onPress={() => this.props.navigate('Home')}
-                        title="Home"
-                        color="#841584"
-                        accessibilityLabel="Learn more about this purple button"
-                    />
+                <View style={pageStyles.pageNav}>
+                    <View style={controlStyles.navContainer}>
+                        <Button
+                            style={controlStyles.homeArea}
+                            onPress={() => this.props.navigate('Home')}
+                            title="Home"
+                            color="#841584"
+                            accessibilityLabel="Go home"
+                        />
+                        <Text style={controlStyles.buttonArea}>The control buttons go in here somewhere </Text>
+                    </View>
                 </View>
 
                 {/*The area where the note is typed*/}
                 <TextInput
-                    style={styles.textArea}
-                    defaultValue= {"Width: " + Dimensions.get('window').height}
+                    style={pageStyles.pageTextArea}
+                    defaultValue= {"Width: " + Dimensions.get('window').width}
                 />
-
-
-                {/*<View style={styles.navContainer}>*/}
-                {/*    <Button*/}
-                {/*        style={[styles.navButton]}*/}
-                {/*        title="Aspirational Button"*/}
-                {/*        onPress={() => createTwoButtonAlert()*/}
-                {/*        }*/}
-                {/*    />*/}
-                {/*    <Button*/}
-                {/*        style={[styles.navButton]}*/}
-                {/*        title="Aspirational Button 2"*/}
-                {/*        onPress={() => createThreeButtonAlert()}*/}
-                {/*    />*/}
-                {/*</View>*/}
             </KeyboardAvoidingView>
         );
     }
 }
 
 
-const styles = StyleSheet.create({
-    container: {
+const pageStyles = StyleSheet.create({
+    pageContainer: {
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    nav: {
+    pageNav: {
         height: heightEighth,
         width: windowWith,
         alignSelf: 'stretch',
         backgroundColor: '#2196F3',
     },
-    textArea: {
+    pageTextArea: {
         height: heightEighth * 7,
         width: windowWith,
         alignSelf: 'stretch',
         backgroundColor: '#8BC34A',
     },
 });
+
+const controlStyles = StyleSheet.create({
+    navContainer: {
+        flex: 1,
+        flexDirection: 'column'
+    },
+    homeArea: {
+        width: windowWith,
+        alignSelf: 'stretch',
+        backgroundColor: '#320a41',
+    },
+    buttonArea: {
+        height: 100,
+        width: windowWith,
+        alignSelf: 'stretch',
+        backgroundColor: '#c31b1b',
+    }
+})
